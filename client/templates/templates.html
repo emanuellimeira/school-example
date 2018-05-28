@@ -1,0 +1,25 @@
+<template name="thirdLayout">
+  <header> HEADER </header>
+  <main>{{> Template.dynamic template=content data=data}}</main>
+  <footer> FOOTER </footer>
+</template>
+
+
+<template name="secondLayout">
+  <header> HEADER (SECOND LAYOUT)</header>
+  <main>{{> Template.dynamic template=content data=data}} {{params.name}}</main>
+  <footer> FOOTER </footer>
+</template>
+
+<template name="home">
+  <h1>This is my first router</h1>
+  <a href="/hello">Hello</a>
+</template>
+
+<template name="hello">
+  <h1>Hello</h1>
+  <a href="/">Home</a>
+
+
+</template>
+  

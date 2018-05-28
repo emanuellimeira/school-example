@@ -1,0 +1,127 @@
+<head>
+  <title>School Of Net</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+</body>
+
+<template name="mainLayout">
+  
+  <header class="header">
+    
+  </header>
+
+  {{> Template.dynamic template=content data=data}}
+  
+  <footer class="footer">
+    
+  </footer>
+</template>
+
+<template name="addContact">
+   <div class="container">
+     <div class="row">
+        <form name="formAddContact" >
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" name="name"  class="form-control"  placeholder="Name">
+      </div>
+     <div class="form-group">
+      <label for="">Lastname</label>
+        <input type="text" name="lastname"  class="form-control" placeholder="Lastname">
+     </div>
+     <div class="form-group">
+      <label for="">Telephone</label>
+        <input type="text" name="telephone"  class="form-control" placeholder="Telephone">
+     </div>
+      <button type="submit" id="saveContact" class="btn btn-primary">Save</button>
+    </form>
+     </div>
+   </div>
+</template>
+
+<template name="editContact">
+
+   <div class="container">
+     <div class="row">
+        <form name="formEditContact" >
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" name="name"  class="form-control"  placeholder="Name" value="{{data.name}}">
+      </div>
+     <div class="form-group">
+      <label for="">Lastname</label>
+        <input type="text" name="lastname"  class="form-control" placeholder="Lastname" value="{{data.lastname}}">
+     </div>
+     <div class="form-group">
+      <label for="">Telephone</label>
+        <input type="text" name="telephone"  class="form-control" placeholder="Telephone" value="{{data.telephone}}">
+     </div>
+      <button type="submit" id="editContact" class="btn btn-primary">Update</button>
+    </form>
+     </div>
+   </div>
+</template>
+
+<template name="listContact">
+  <ul>
+
+    {{#each list}}
+      <li><a href="/{{_id}}">{{name}} {{lastname}} - {{telephone}}</a> <a href="/remove/{{_id}}"> Excluir </a></li>
+    {{/each}}
+
+  </ul>
+</template>
+
+<template name="uniqueContact">
+
+ <div class="container">
+   <div class="row">
+      <ul>
+      <li>{{unique.name}} {{unique.lastname}} - {{unique.telephone}} ( <a href="{{_id}}"> Excluir </a> )</li>
+  </ul>
+   </div>
+ </div>
+</template>
+
+<template name="topo">
+  <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="/" class="text-white">Todos os contatos</a></li>
+                <li><a href="/contact/add" class="text-white">Adicionar</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>Album</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+</template>
+
